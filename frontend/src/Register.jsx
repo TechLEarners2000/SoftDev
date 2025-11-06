@@ -10,6 +10,7 @@ const Register = () => {
     phone: '',
     password: '',
     role: 'customer',
+    secret_key: '',
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -95,8 +96,22 @@ const Register = () => {
             >
               <option value="customer">Customer</option>
               <option value="developer">Developer</option>
+              <option value="owner">Owner</option>
             </select>
           </div>
+          {formData.role === 'owner' && (
+            <div style={styles.inputGroup}>
+              <label style={styles.label}>Secret Key</label>
+              <input
+                type="password"
+                name="secret_key"
+                value={formData.secret_key}
+                onChange={handleChange}
+                style={styles.input}
+                required
+              />
+            </div>
+          )}
           {error && <div style={styles.error}>{error}</div>}
           <button type="submit" style={styles.button}>Register</button>
         </form>
