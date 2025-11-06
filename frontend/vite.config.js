@@ -7,6 +7,9 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5000,
     strictPort: true,
+    allowedHosts: [
+      'softdev-dpsg.onrender.com'
+    ],
     hmr: {
       clientPort: 5000
     },
@@ -20,6 +23,9 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: 5000,
-    strictPort: true
+    strictPort: true,
+    allowedHosts: [
+      'softdev-dpsg.onrender.com'
+    ]
   }
 })
