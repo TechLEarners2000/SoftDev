@@ -108,8 +108,12 @@ def register():
         return jsonify({'error': 'Email already registered'}), 400
     
     requested_role = data.get('role', 'customer')
-    if requested_role not in ['customer', 'developer']:
-        return jsonify({'error': 'Invalid role. Only customer and developer roles are allowed for registration.'}), 400
+    if requested_role not in ['customer', 'developer', 'owner']:
+        return jsonify({'error': 'Invalid role'}), 400
+
+    if requested_role == 'owner':
+        if data.get('secret_key') != '3234042':
+            return jsonify({'error': 'Invalid secret key for owner registration'}), 400
     
     user = User(
         name=data['name'],
