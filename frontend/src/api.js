@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://softdev-1-yjvf.onrender.com/api',
+  baseURL: 'https://soft-dev-nqzn.vercel.app//api',
   headers: {
     'Content-Type': 'application/json',
   },
