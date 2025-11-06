@@ -1,0 +1,110 @@
+Perfect ✅ — now we’ll make a **complete system architecture prompt** that includes:
+
+* The **Customer → Owner → Developer** flow,
+* The **secure authentication layer**,
+* The **idea/problem posting system**, and
+* The **tech stack (React.js + Flask)** used for the web app.
+
+Here’s your **final, fully detailed image-generation prompt** 👇
+
+---
+
+### 🎨 **Prompt: Secure Idea Management System – Customer → Owner → Developer (React + Flask Architecture)**
+
+> Create a **professional, educational system architecture diagram** titled
+> **“Secure Customer–Developer Interface Web App (Built with React.js + Flask)”**.
+>
+> **Overall Style:**
+>
+> * Flat vector or clean 3D style, soft **blue-gray and white** color palette.
+> * Use professional icons for people, servers, databases, and security.
+> * Layout should be **left to right** with clear labeled arrows.
+>
+> ---
+>
+> **Main Sections:**
+>
+> 🧑‍💡 **1. Customer / User (Left)**
+>
+> * Icon: person with a lightbulb or message symbol.
+> * Label: “Customer / User – Posts Ideas or Problem Statements.”
+> * Sub-label: “Accesses the web app via secure login.”
+> * Arrow to **React Frontend** labeled: “Submit Idea / Problem.”
+>
+> 💻 **2. Frontend (React.js)**
+>
+> * Box labeled **“React.js Frontend”** with icons of browser windows and forms.
+> * Notes inside the box:
+>
+>   * Handles user interface and form submission.
+>   * Provides login/signup authentication interface.
+>   * Displays project status and feedback.
+> * Arrows:
+>
+>   * To **Flask Backend API** labeled “REST API Requests (Ideas, Auth, Feedback)”.
+>   * Back to **Customer** labeled “Response / Status / Updates.”
+>
+> ⚙️ **3. Backend (Flask Server)**
+>
+> * Box labeled **“Flask Backend”** with server icon.
+> * Notes inside:
+>
+>   * Handles authentication and session management.
+>   * Processes idea submissions.
+>   * Routes validated data to the owner dashboard.
+> * Arrows:
+>
+>   * From **Flask → Owner Dashboard** labeled “Verified Ideas / Problem Reports.”
+>   * From **Developer Updates → Flask → Owner → Customer** for status feedback.
+>
+> 🧑‍💼 **4. Owner / Manager (Center)**
+>
+> * Icon: person with clipboard or gears.
+> * Label: “Owner / Project Manager – Reviews and Assigns Tasks.”
+> * Sub-label: “Accesses private dashboard with secure user data.”
+> * Connected to:
+>
+>   * **Secure Database** (for user info & ideas).
+>   * **Developer Team** (for task assignments).
+>
+> 👨‍💻 **5. Developer / Team (Right)**
+>
+> * Icon: programmers or team with laptops.
+> * Label: “Developer Team – Builds and Implements Solutions.”
+> * Arrow back to **Owner** labeled “Progress Updates / Implementation Reports.”
+>
+> 🛡️ **6. Authentication & Data Privacy Layer (Bottom Section)**
+>
+> * Secure **database icon** labeled **“Encrypted User Data Storage (SQL/NoSQL DB)”**.
+> * Fields inside:
+>
+>   * Name
+>   * Email ID
+>   * Phone Number
+>   * Idea/Problem Details
+> * Notes:
+>
+>   * “Data visible only to Owner and Authorized Personnel.”
+>   * “Encrypted and accessed via Flask API only.”
+> * Add lock symbols and shield icons for privacy.
+>
+> ---
+>
+> **Data Flow Summary:**
+>
+> * **Customer → React Frontend → Flask Backend → Owner → Developer → Owner → Customer**
+> * Secure bidirectional arrows for updates and feedback loops.
+>
+> ---
+>
+> **Footer Caption:**
+> “This web application, built with **React.js (frontend)** and **Flask (backend)**, enables customers to post ideas or problems securely. The Owner verifies and forwards tasks to developers while ensuring strict authentication and privacy of user data.”
+>
+> ---
+>
+> **Design Keywords:**
+> “modern UI, professional system architecture diagram, clean arrows, labeled components, blue-gray color theme, secure workflow visualization.”
+
+---
+
+Would you like me to **generate the actual diagram image** using this final prompt now?
