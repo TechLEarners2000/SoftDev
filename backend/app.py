@@ -107,8 +107,8 @@ def register():
     if User.query.filter_by(email=data['email']).first():
         return jsonify({'error': 'Email already registered'}), 400
     
-    requested_role = data.get('role', 'customer')
-    if requested_role not in ['customer', 'developer']:
+    requested_role = data.get('role', 'customer','owner')
+    if requested_role not in ['customer', 'developer', 'owner']:
         return jsonify({'error': 'Invalid role. Only customer and developer roles are allowed for registration.'}), 400
     
     user = User(
