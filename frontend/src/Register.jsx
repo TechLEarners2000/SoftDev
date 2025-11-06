@@ -135,7 +135,7 @@ const Register = () => {
               <option value="customer">Customer</option>
               <option value="developer">Developer</option>
 
-              {showOwner && <option value="owner">Owner</option>}
+              <option value="owner">Owner</option>
             </select>
           </div>
 
