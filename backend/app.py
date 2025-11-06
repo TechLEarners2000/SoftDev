@@ -316,48 +316,6 @@ def get_developers():
         'email': dev.email
     } for dev in developers]), 200
 
-with app.app_context():
-    db.create_all()
-
-    # TEMPORARY: Auto-create 3 owners on deployment
-    temporary_owners = [
-  {
-    "name": "Jay Harish P",
-    "email": "arishexim011@gmail.com",
-    "phone": "+91 6381438102",
-    "password": "Sriharish00u@"
-  },
-  {
-    "name": "Srikanth L",
-    "email": "lakshmansri032@gmail.com",
-    "phone": "+91 93630 87370",
-    "password": "srikanth0044"
-  },
-  {
-    "name":"Gery Anton G",
-    "email":"geryanton263@gmail.com",
-    "phone":"+91 93613 10717",
-    "password":"gery@93613"
-  }
-]
-
-
-    for owner_data in temporary_owners:
-        if not User.query.filter_by(email=owner_data["email"]).first():
-            owner = User(
-                name=owner_data["name"],
-                email=owner_data["email"],
-                phone=owner_data["phone"],
-                password=generate_password_hash(owner_data["password"]),
-                role="owner"
-            )
-            db.session.add(owner)
-
-    db.session.commit()
-
-    print("Temporary owners inserted into database.")
-
-
 @app.route('/api/stats', methods=['GET'])
 @jwt_required()
 def get_stats():
