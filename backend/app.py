@@ -52,21 +52,38 @@ class Update(db.Model):
 with app.app_context():
     db.create_all()
 
-    # Load owners from owners.json
-    if os.path.exists('owners.json'):
-        with open('owners.json', 'r') as f:
-            owners_data = json.load(f)
-            for owner_data in owners_data:
-                if not User.query.filter_by(email=owner_data['email']).first():
-                    owner = User(
-                        name=owner_data['name'],
-                        email=owner_data['email'],
-                        phone=owner_data.get('phone', ''),
-                        password=generate_password_hash(owner_data['password']),
-                        role='owner'
-                    )
-                    db.session.add(owner)
-            db.session.commit()
+    # Create default owners
+    owners_data = [
+        {
+            "name": "Jay Harish P",
+            "email": "arishexim011@gmail.com",
+            "phone": "+91 6381438102",
+            "password": "Sriharish00u@"
+        },
+        {
+            "name": "Srikanth L",
+            "email": "lakshmansri032@gmail.com",
+            "phone": "+91 93630 87370",
+            "password": "srikanth0044"
+        },
+        {
+            "name": "Gery Anton G",
+            "email": "geryanton263@gmail.com",
+            "phone": "+91 93613 10717",
+            "password": "gery@93613"
+        }
+    ]
+    for owner_data in owners_data:
+        if not User.query.filter_by(email=owner_data['email']).first():
+            owner = User(
+                name=owner_data['name'],
+                email=owner_data['email'],
+                phone=owner_data.get('phone', ''),
+                password=generate_password_hash(owner_data['password']),
+                role='owner'
+            )
+            db.session.add(owner)
+    db.session.commit()
 
     # Load customers from customers.json
     if os.path.exists('customers.json'):
@@ -108,12 +125,8 @@ def register():
         return jsonify({'error': 'Email already registered'}), 400
     
     requested_role = data.get('role', 'customer')
-    if requested_role not in ['customer', 'developer', 'owner']:
-        return jsonify({'error': 'Invalid role'}), 400
-
-    if requested_role == 'owner':
-        if data.get('secret_key') != '3234042':
-            return jsonify({'error': 'Invalid secret key for owner registration'}), 400
+    if requested_role not in ['customer', 'developer']:
+       return jsonify({'error': 'Invalid role. Only customer and developer roles are allowed for registration.'}), 400
     
     user = User(
         name=data['name'],
