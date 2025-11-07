@@ -207,7 +207,28 @@ def ideas():
         )
         db.session.add(idea)
         db.session.commit()
-        
+
+        # Save to ideas.json
+        if os.path.exists('ideas.json'):
+            with open('ideas.json', 'r') as f:
+                ideas_data = json.load(f)
+        else:
+            ideas_data = []
+
+        ideas_data.append({
+            'id': idea.id,
+            'title': idea.title,
+            'description': idea.description,
+            'status': idea.status,
+            'user_id': idea.user_id,
+            'assigned_to': idea.assigned_to,
+            'created_at': idea.created_at.isoformat(),
+            'updated_at': idea.updated_at.isoformat()
+        })
+
+        with open('ideas.json', 'w') as f:
+            json.dump(ideas_data, f, indent=4)
+
         return jsonify({
             'message': 'Idea submitted successfully',
             'idea': {
